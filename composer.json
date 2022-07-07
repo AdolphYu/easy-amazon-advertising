@@ -1,5 +1,5 @@
 {
-  "name": "mystudytime/amazon-advertising",
+  "name": "adolphyu/amazon-advertising",
   "description": "Amazon Advertising API v2 Client Library",
   "type": "library",
   "license": "MIT",
@@ -28,6 +28,10 @@
     {
       "name": "bai he",
       "email": "b_aihe@163.com"
+    },
+    {
+      "name": "adolph",
+      "email": "adolph@oooerp.com"
     }
   ],
   "minimum-stability": "dev",
