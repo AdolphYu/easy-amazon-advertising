@@ -1,5 +1,3 @@
-![image](https://user-images.githubusercontent.com/34995516/124455031-b4fc7980-ddbb-11eb-9743-0ca23dbf7b1a.png)
-
 
 ### Synopsis
 ## 概述
@@ -17,7 +15,7 @@ pimple/pimple: ~3.0
 ## 安装
 使用composer安装
 ```
-composer require mystudytime/easy-amazon-advertising
+composer require adolphyu/amazon-advertising
 ```
 
 ## 说明
