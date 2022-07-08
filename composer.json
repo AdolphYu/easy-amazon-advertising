@@ -1,6 +1,6 @@
 {
   "name": "adolphyu/amazon-advertising",
-  "description": "Amazon Advertising API v2 Client Library",
+  "description": "Amazon Advertising API v2 Client Library ",
   "type": "library",
   "license": "MIT",
   "require": {
