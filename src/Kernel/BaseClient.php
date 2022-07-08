@@ -76,9 +76,6 @@ class BaseClient
         if (isset($app['client']->profileId) && !empty($app['client']->profileId)) {
             $this->profileId = $app['client']->profileId;
         }
-        if (empty($this->config['accessToken']) && !empty($this->config['refreshToken'])) {
-            $this->doRefreshToken();
-        }
     }
 
     /**
