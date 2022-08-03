@@ -84,7 +84,7 @@ class Client extends BaseClient
      */
     public function createPortfolios(array $params)
     {
-        return $this->httpPost('/portfolios/', $params);
+        return $this->httpPost('/portfolios', $params);
     }
 
     /**
