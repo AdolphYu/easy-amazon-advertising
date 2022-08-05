@@ -403,19 +403,14 @@ class BaseClient
             $headers['Amazon-Advertising-API-Scope'] = $this->profileId;
         }
 
-        $path_file = $data['path'].'/report/'.date('Y').'/'.date('m').'/'.date('d').'/';
-        if (!is_dir($path_file)) {
-            mkdir($path_file, 0755, true);
-        }
-        $temp_file = $path_file.$data['reportId'].'.gz';
-
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
-        $response = $this->client->get($requestUrl.$url, ['headers' => $headers, 'query' => [], 'sink' => $temp_file, 'timeout' => 120]);
-        if (200 == $response->getStatusCode() && !empty(($report = $this->read_gz($temp_file)))) {
-            $report = json_decode($report, true);
+        $response = $this->client->get($requestUrl.$url, ['headers' => $headers, 'query' => [], 'timeout' => 120]);
+
+        if (200 == $response->getStatusCode()) {
+            $content = gzdecode($response->getBody()->getContents());
+            $report = json_decode($content, true);
         }
 
-        unlink($temp_file);
 
         return [
             'success' => 200 == $response->getStatusCode() ? true : false,
