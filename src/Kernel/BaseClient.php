@@ -410,10 +410,9 @@ class BaseClient
         $temp_file = $path_file.$data['reportId'].'.gz';
 
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
-        $response = $this->client->get($requestUrl.$url, ['headers' => $headers, 'query' => [], 'save_to' => $temp_file, 'timeout' => 120]);
-
+        $response = $this->client->get($requestUrl.$url, ['headers' => $headers, 'query' => [], 'sink' => $temp_file, 'timeout' => 120]);
         if (200 == $response->getStatusCode() && !empty(($report = $this->read_gz($temp_file)))) {
-            $report = \GuzzleHttp\json_decode($report, true);
+            $report = json_decode($report, true);
         }
 
         unlink($temp_file);
