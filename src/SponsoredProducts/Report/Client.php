@@ -48,8 +48,21 @@ class Client extends BaseClient
      * @author  baihe <b_aihe@163.com>
      * @date    2019-11-14 19:45
      */
-    public function downloadReportData(string $reportId, $params)
+    public function downloadReportData(string $reportId, $params=[])
     {
         return $this->httpDownload("/reports/{$reportId}/download", $params);
     }
+
+
+    public function requestReportV3(array $params)
+    {
+        return $this->httpPost("/reporting/reports", $params,[],false);
+    }
+
+
+    public function getReportV3(string $reportId)
+    {
+        return $this->httpGet("/reporting/reports/{$reportId}",[],false);
+    }
+
 }
