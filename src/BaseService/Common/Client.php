@@ -23,4 +23,14 @@ class Client extends BaseClient
         return $this->httpPost('/product/metadata', $params, [], false);
     }
 
+    /**
+     * @description 获取竞价推荐
+     * @param $params
+     * @return array
+     */
+    public function bidRecommend($params)
+    {
+        return $this->httpPost('/sp/targets/bid/recommendations', $params, [], false);
+    }
+
 }
