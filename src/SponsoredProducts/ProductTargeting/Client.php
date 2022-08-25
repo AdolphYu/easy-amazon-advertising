@@ -191,4 +191,41 @@ class Client extends BaseClient
         return $this->httpPut('/sp/negativeTargets', $params);
     }
 
+    /**
+     * @description 获取商品投放分类推荐
+     * @param array $params
+     * @return array
+     */
+    public function createRecommendationsForCategory(array $params)
+    {
+        return $this->httpPost('/sp/targets/categories/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
+    /**
+     * @description 新版本获取所有的分类
+     * @param array $params
+     * @return array
+     */
+    public function getNewTargetingCategories(array $params = [])
+    {
+        return $this->httpGet('/sp/targets/categories', $params, false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
+    /**
+     * @description 细分品牌
+     * @param $categoryId
+     * @param array $params
+     * @return array
+     */
+    public function getNewTargetingCategoriesRefinements($categoryId, array $params = [])
+    {
+        return $this->httpGet("/sp/targets/category/{$categoryId}/refinements", $params, false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
+
+    public function createTargetProductsCount(array $params)
+    {
+        return $this->httpPost('/sp/targets/products/count', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
 }
