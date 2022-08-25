@@ -33,4 +33,14 @@ class Client extends BaseClient
         return $this->httpPost('/sp/targets/bid/recommendations', $params, [], false);
     }
 
+    /**
+     * @description 获取关键词推荐
+     * @param $params
+     * @return array
+     */
+    public function keywordRecommend($params)
+    {
+        return $this->httpPost('/sp/targets/keywords/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spkeywordsrecommendation.v5+json']);
+    }
+
 }

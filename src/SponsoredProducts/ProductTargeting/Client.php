@@ -170,4 +170,25 @@ class Client extends BaseClient
 
         return $this->httpGet('/sp/targets/brands', $params);
     }
+
+    /**
+     * @description 添加否定商品投放
+     * @param array $params
+     * @return array
+     */
+    public function createNegativeTargetingClauses(array $params)
+    {
+        return $this->httpPost('/sp/negativeTargets', $params);
+    }
+
+    /**
+     * @description 修改否定商品投放
+     * @param array $params
+     * @return array
+     */
+    public function updateNegativeTargetingClauses(array $params)
+    {
+        return $this->httpPut('/sp/negativeTargets', $params);
+    }
+
 }

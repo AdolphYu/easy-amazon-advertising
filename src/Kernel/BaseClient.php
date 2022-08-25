@@ -301,19 +301,20 @@ class BaseClient
      * @param array  $data
      * @param array  $query
      * @param bool   $isVersion
+     * @param array   $headers
      *
      * @return array
      *
      * @author  baihe <b_aihe@163.com>
      * @date    2019-11-20 10:53
      */
-    public function httpPost(string $url, array $data = [], array $query = [], $isVersion = true)
+    public function httpPost(string $url, array $data = [], array $query = [], $isVersion = true, $headers = [])
     {
-        $headers = [
+        $headers = array_merge([
             'Authorization' => 'bearer '.$this->config['accessToken'],
             'Content-Type' => 'application/json',
             'Amazon-Advertising-API-ClientId' => $this->config['clientId'],
-        ];
+        ], $headers);
         if (!empty($this->profileId)) {
             $headers['Amazon-Advertising-API-Scope'] = $this->profileId;
         }
