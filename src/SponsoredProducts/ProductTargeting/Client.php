@@ -223,9 +223,24 @@ class Client extends BaseClient
     }
 
 
+    /**
+     * @description 统计商品投放筛选的商品数量去健
+     * @param array $params
+     * @return array
+     */
     public function createTargetProductsCount(array $params)
     {
         return $this->httpPost('/sp/targets/products/count', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
+    /**
+     * @description 否定商品品牌搜索
+     * @param array $params
+     * @return array
+     */
+    public function negativeTargetsBrandsSearch(array $params)
+    {
+        return $this->httpPost('/sp/negativeTargets/brands/search', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
     }
 
 }
