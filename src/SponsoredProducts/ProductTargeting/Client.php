@@ -243,4 +243,14 @@ class Client extends BaseClient
         return $this->httpPost('/sp/negativeTargets/brands/search', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
     }
 
+    /**
+     * @description 商品投放商品推荐
+     * @param array $params
+     * @return array
+     */
+    public function targetsProductsRecommendations(array $params)
+    {
+        return $this->httpPost('/sp/targets/products/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spproductrecommendation.v3+json']);
+    }
+
 }
