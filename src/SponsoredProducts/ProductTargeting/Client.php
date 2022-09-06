@@ -170,4 +170,87 @@ class Client extends BaseClient
 
         return $this->httpGet('/sp/targets/brands', $params);
     }
+
+    /**
+     * @description 添加否定商品投放
+     * @param array $params
+     * @return array
+     */
+    public function createNegativeTargetingClauses(array $params)
+    {
+        return $this->httpPost('/sp/negativeTargets', $params);
+    }
+
+    /**
+     * @description 修改否定商品投放
+     * @param array $params
+     * @return array
+     */
+    public function updateNegativeTargetingClauses(array $params)
+    {
+        return $this->httpPut('/sp/negativeTargets', $params);
+    }
+
+    /**
+     * @description 获取商品投放分类推荐
+     * @param array $params
+     * @return array
+     */
+    public function createRecommendationsForCategory(array $params)
+    {
+        return $this->httpPost('/sp/targets/categories/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
+    /**
+     * @description 新版本获取所有的分类
+     * @param array $params
+     * @return array
+     */
+    public function getNewTargetingCategories(array $params = [])
+    {
+        return $this->httpGet('/sp/targets/categories', $params, false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
+    /**
+     * @description 细分品牌
+     * @param $categoryId
+     * @param array $params
+     * @return array
+     */
+    public function getNewTargetingCategoriesRefinements($categoryId, array $params = [])
+    {
+        return $this->httpGet("/sp/targets/category/{$categoryId}/refinements", $params, false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
+
+    /**
+     * @description 统计商品投放筛选的商品数量去健
+     * @param array $params
+     * @return array
+     */
+    public function createTargetProductsCount(array $params)
+    {
+        return $this->httpPost('/sp/targets/products/count', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
+    /**
+     * @description 否定商品品牌搜索
+     * @param array $params
+     * @return array
+     */
+    public function negativeTargetsBrandsSearch(array $params)
+    {
+        return $this->httpPost('/sp/negativeTargets/brands/search', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+    }
+
+    /**
+     * @description 商品投放商品推荐
+     * @param array $params
+     * @return array
+     */
+    public function targetsProductsRecommendations(array $params)
+    {
+        return $this->httpPost('/sp/targets/products/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spproductrecommendation.v3+json']);
+    }
+
 }

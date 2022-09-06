@@ -389,4 +389,11 @@ class Client extends BaseClient
     {
         return $this->httpPost('/v2/sp/asins/suggested/keywords', $params);
     }
+
+
+    public function createAdGroupRecommendKeywords($params = [])
+    {
+        return $this->httpPost("/sp/targets/keywords/recommendations", $params, [], false);
+    }
+
 }
