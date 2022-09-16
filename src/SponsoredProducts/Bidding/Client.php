@@ -71,4 +71,14 @@ class Client extends BaseClient
     {
         return $this->httpPost(' /sp/targets/bidRecommendations', $params);
     }
+
+    /**
+     * @description 获取竞价推荐
+     * @param $params
+     * @return array
+     */
+    public function bidRecommend($params)
+    {
+        return $this->httpPost('/sp/targets/bid/recommendations', $params, [], false);
+    }
 }
