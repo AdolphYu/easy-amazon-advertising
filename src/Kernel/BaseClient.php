@@ -292,7 +292,7 @@ class BaseClient
 
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
 
-        return $this->request($requestUrl.$url, 'GET', ['query' => $data, 'headers' => $headers, 'timeout' => 120]);
+        return $this->request($requestUrl.$url, 'GET', ['query' => $data, 'headers' => $headers, 'timeout' => 600]);
     }
 
     /**
