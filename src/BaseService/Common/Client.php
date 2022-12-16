@@ -43,9 +43,22 @@ class Client extends BaseClient
         return $this->httpPost('/sp/targets/keywords/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spkeywordsrecommendation.v5+json']);
     }
 
+
     public function historyChange($params)
     {
         return $this->httpPost('/history', $params, [], false);
+    }
+
+
+
+    /**
+     * @description invoice
+     * @param $params
+     * @return array
+     */
+    public function invoice($params)
+    {
+        return $this->httpGet('/invoice', $params,false);
     }
 
 }
