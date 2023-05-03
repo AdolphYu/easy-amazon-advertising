@@ -44,6 +44,13 @@ class Client extends BaseClient
     }
 
 
+    public function historyChange($params)
+    {
+        return $this->httpPost('/history', $params, [], false);
+    }
+
+
+
     /**
      * @description invoice
      * @param $params
@@ -53,4 +60,5 @@ class Client extends BaseClient
     {
         return $this->httpGet('/invoice', $params,false);
     }
+
 }
