@@ -69,7 +69,7 @@ class Client extends BaseClient
      */
     public function getBidRecommendations(array $params)
     {
-        return $this->httpPost(' /sp/targets/bidRecommendations', $params);
+        return $this->httpPost('/sp/targets/bidRecommendations', $params);
     }
 
     /**
