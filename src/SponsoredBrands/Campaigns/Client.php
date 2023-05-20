@@ -24,7 +24,7 @@ class Client extends BaseClient
      */
     public function listCampaigns(array $params = [])
     {
-        return $this->httpGet('/sb/v4/campaigns', $params, false);
+        return $this->httpGet('/sb/v4/campaigns/list', $params, false);
     }
 
     /**
@@ -57,20 +57,6 @@ class Client extends BaseClient
         return $this->httpPut('/sb/v4/campaigns', $params, [], false);
     }
 
-    /**
-     * getCampaign.
-     *
-     * @param int $campaignId
-     *
-     * @return array
-     *
-     * @author  baihe <b_aihe@163.com>
-     * @date    2019-11-14 00:43
-     */
-    public function getCampaign(int $campaignId)
-    {
-        return $this->httpGet('/sb/v4/campaigns/'.$campaignId, [], false);
-    }
 
     /**
      * archiveCampaign.
