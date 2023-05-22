@@ -24,7 +24,7 @@ class Client extends BaseClient
      */
     public function listCampaigns(array $params = [])
     {
-        return $this->httpGet('/sb/v4/campaigns/list', $params, false);
+        return $this->httpPost('/sb/v4/campaigns/list', $params, [],false, ['Accept' => 'application/vnd.sbcampaignresource.v4+json']);
     }
 
     /**
