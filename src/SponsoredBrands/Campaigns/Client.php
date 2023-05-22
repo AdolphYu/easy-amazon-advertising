@@ -57,6 +57,20 @@ class Client extends BaseClient
         return $this->httpPut('/sb/v4/campaigns', $params, [], false);
     }
 
+    /**
+     * getCampaign.
+     *
+     * @param int $campaignId
+     *
+     * @return array
+     *
+     * @author  baihe <b_aihe@163.com>
+     * @date    2019-11-14 00:43
+     */
+    public function getCampaign(int $campaignId)
+    {
+        return $this->httpGet('/sb/campaigns/'.$campaignId, [], false);
+    }
 
     /**
      * archiveCampaign.
@@ -68,8 +82,8 @@ class Client extends BaseClient
      * @author  baihe <b_aihe@163.com>
      * @date    2019-11-14 00:43
      */
-    public function deleteCampaign($params)
+    public function archiveCampaign(int $campaignId)
     {
-        return $this->httpPost('/sb/v4/campaigns/delete', $params, [], false);
+        return $this->httpDelete('/sb/campaigns/'.$campaignId, [], [], false);
     }
 }
