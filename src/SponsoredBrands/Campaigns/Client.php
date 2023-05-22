@@ -24,7 +24,7 @@ class Client extends BaseClient
      */
     public function listCampaigns(array $params = [])
     {
-        return $this->httpGet('/sb/campaigns', $params, false);
+        return $this->httpPost('/sb/v4/campaigns/list', $params, [],false, ['Accept' => 'application/vnd.sbcampaignresource.v4+json']);
     }
 
     /**
@@ -39,7 +39,7 @@ class Client extends BaseClient
      */
     public function createCampaigns($params)
     {
-        return $this->httpPost('/sb/campaigns', $params, [], false);
+        return $this->httpPost('/sb/v4/campaigns', $params, [], false);
     }
 
     /**
@@ -54,7 +54,7 @@ class Client extends BaseClient
      */
     public function updateCampaigns($params)
     {
-        return $this->httpPut('/sb/campaigns', $params, [], false);
+        return $this->httpPut('/sb/v4/campaigns', $params, [], false);
     }
 
     /**
