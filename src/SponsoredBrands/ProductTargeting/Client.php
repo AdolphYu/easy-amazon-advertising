@@ -24,7 +24,7 @@ class Client extends BaseClient
      */
     public function listTargetingClauses(array $params)
     {
-        return $this->httpPost('/sb/targets/list', $params, [], false);
+        return $this->httpPost('/sb/targets/list', $params, [],false);
     }
 
     /**
