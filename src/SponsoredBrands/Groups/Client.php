@@ -39,6 +39,15 @@ class Client extends BaseClient
      */
     public function listAdGroups(array $params = [])
     {
-        return $this->httpGet('/sb/adGroups', $params, false);
+        return $this->httpPost('/sb/v4/adGroups/list', $params, [], false, ['Accept' => 'application/vnd.sbadgroupresource.v4+json']);
+    }
+
+    /**
+     * @description 创建广告组
+     * @param array $params
+     * @return array
+     */
+    public function createGroups(array $params){
+        return $this->httpPost('/sb/v4/adGroups', $params, [], false, ['Accept' => 'application/vnd.sbadgroupresource.v4+json']);
     }
 }
