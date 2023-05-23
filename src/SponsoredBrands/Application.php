@@ -28,6 +28,8 @@ class Application extends Container
         Keywords\ServiceProvider::class,
         ProductTargeting\ServiceProvider::class,
         Brands\ServiceProvider::class,
+        Ads\ServiceProvider::class,
+        AdCreatives\ServiceProvider::class,
     ];
 
     /**
