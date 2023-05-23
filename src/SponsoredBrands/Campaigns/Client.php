@@ -39,7 +39,7 @@ class Client extends BaseClient
      */
     public function createCampaigns($params)
     {
-        return $this->httpPost('/sb/v4/campaigns', $params, [], false);
+        return $this->httpPost('/sb/v4/campaigns', $params, [], false, ['Accept' => 'application/vnd.sbcampaignresource.v4+json']);
     }
 
     /**
