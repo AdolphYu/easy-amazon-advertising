@@ -30,6 +30,7 @@ class Application extends Container
         Brands\ServiceProvider::class,
         Ads\ServiceProvider::class,
         AdCreatives\ServiceProvider::class,
+        Stores\ServiceProvider::class,
     ];
 
     /**
