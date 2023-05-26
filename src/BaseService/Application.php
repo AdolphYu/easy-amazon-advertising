@@ -2,6 +2,7 @@
 
 namespace easyAmazonAdv\BaseService;
 
+use easyAmazonAdv\BaseService\Assets\ServiceProvider;
 use easyAmazonAdv\Kernel\Provider\ClientServiceProvider;
 use easyAmazonAdv\Kernel\Provider\LoggerServiceProvider;
 use easyAmazonAdv\Kernel\Support\Collection;
@@ -16,7 +17,8 @@ class Application extends Container
         Profiles\ServiceProvider::class,
         Portfolios\ServiceProvider::class,
         OAuth\ServiceProvider::class,
-        Common\ServiceProvider::class
+        Common\ServiceProvider::class,
+        ServiceProvider::class
     ];
 
     public function __construct($config = [], array $values = [])
