@@ -18,6 +18,7 @@ class Application extends Container
         Portfolios\ServiceProvider::class,
         OAuth\ServiceProvider::class,
         Common\ServiceProvider::class,
+        Assets\ServiceProvider::class,
         ServiceProvider::class
     ];
 
