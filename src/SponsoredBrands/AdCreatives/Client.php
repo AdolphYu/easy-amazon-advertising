@@ -42,8 +42,5 @@ class Client extends BaseClient
         return $this->httpPost('/sb/ads/creatives/brandVideo',$params,[],false, ['Accept' => 'application/vnd.sbAdCreativeResource.v4+json']);
     }
 
-    public function getAssetsSearch(array $params = []){
-        return $this->httpPost('/assets/search/', $params, [],false);
-    }
 
 }
