@@ -29,4 +29,8 @@ class Client extends BaseClient
     public function getAssetsSearch(array $params = []){
         return $this->httpPost('/assets/search/', $params, [],false);
     }
+
+    public function preModeration(array $params = []){
+        return $this->httpPost('/preModeration', $params, [],false);
+    }
 }
