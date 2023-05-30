@@ -23,4 +23,8 @@ class Client extends BaseClient
         return $this->httpPost('/stores/assets', $params, [],false);
     }
 
+    public function listStores($params = []){
+        return $this->httpGet('/v2/stores', $params,false);
+    }
+
 }

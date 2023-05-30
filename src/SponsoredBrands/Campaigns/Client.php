@@ -54,7 +54,7 @@ class Client extends BaseClient
      */
     public function updateCampaigns($params)
     {
-        return $this->httpPut('/sb/v4/campaigns', $params, [], false);
+        return $this->httpPut('/sb/v4/campaigns', $params, [], false, ['Accept' => 'application/vnd.sbcampaignresource.v4+json']);
     }
 
     /**
