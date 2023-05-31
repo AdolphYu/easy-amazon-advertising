@@ -18,7 +18,7 @@ class Client extends BaseClient
     }
 
     public function register(array $params = []){
-        return $this->httpPost('/assets/register', $params, [],false, ['Content-Type' => 'text/plain']);
+        return $this->httpPost('/assets/register', $params, [],false);
     }
 
     public function upload(array $params = []){
