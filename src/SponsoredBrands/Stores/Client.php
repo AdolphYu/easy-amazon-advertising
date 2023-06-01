@@ -27,4 +27,7 @@ class Client extends BaseClient
         return $this->httpGet('/v2/stores', $params,false);
     }
 
+    public function landingPageAsin($params = []){
+        return $this->httpGet('/pageAsins', $params,false);
+    }
 }
