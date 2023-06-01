@@ -33,7 +33,7 @@ class Client extends BaseClient
 
     public function productCollection(array $params)
     {
-        return $this->httpPost('/sb/ads/creatives/storeSpotlight',$params,[],false, ['Accept' => 'application/vnd.sbAdCreativeResource.v4+json']);
+        return $this->httpPost('/sb/ads/creatives/productCollection',$params,[],false, ['Accept' => 'application/vnd.sbAdCreativeResource.v4+json']);
     }
 
 
