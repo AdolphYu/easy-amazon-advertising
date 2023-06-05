@@ -5,6 +5,7 @@ namespace easyAmazonAdv\SponsoredDisplay;
 use easyAmazonAdv\Kernel\Provider\ClientServiceProvider;
 use easyAmazonAdv\Kernel\Provider\LoggerServiceProvider;
 use easyAmazonAdv\Kernel\Support\Collection;
+use easyAmazonAdv\SponsoredDisplay\Creatives\ServiceProvider;
 use Pimple\Container;
 
 /**
@@ -27,6 +28,7 @@ class Application extends Container
         Report\ServiceProvider::class,
         Targeting\ServiceProvider::class,
         NegativeTargeting\ServiceProvider::class,
+        ServiceProvider::class
     ];
 
     /**
