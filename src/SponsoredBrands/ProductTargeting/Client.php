@@ -236,4 +236,24 @@ class Client extends BaseClient
     {
         return $this->httpPost('/sb/recommendations/targets/brand', $params, [], false);
     }
+
+    /**
+     * @description 获取商品定位数量
+     * @param array $params
+     * @return array
+     */
+    public function productsCount(array $params){
+        return $this->httpPost('/sb/targets/products/count', $params, [], false, ['Accept' => 'application/vnd.sbtargeting.v4+json']);
+    }
+
+
+    /**
+     * @description 获取分类
+     * @param array $params
+     * @return array
+     */
+    public function targetsCategories(array $params){
+        return $this->httpGet('/sb/targets/categories', $params,false);
+    }
+
 }
