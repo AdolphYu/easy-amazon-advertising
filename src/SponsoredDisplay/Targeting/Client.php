@@ -116,4 +116,16 @@ class Client extends BaseClient
     {
         return $this->httpGet('/sd/targets/extended/'.$targetId, [], false);
     }
+
+
+    public function getTargetingRecommendations(array $params)
+    {
+        return $this->httpPost('/sd/targets/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.sdtargetingrecommendations.v3.3+json']);
+    }
+
+    public function getTargetingBidRecommendations(array $params)
+    {
+        return $this->httpPost('/sd/targets/bid/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.sdtargetingrecommendations.v3.2+json']);
+    }
+
 }
