@@ -61,4 +61,14 @@ class Client extends BaseClient
         return $this->httpGet('/invoice', $params,false);
     }
 
+    public function audiences(array $params = [])
+    {
+        return $this->httpPost('/audiences/list', $params, [],false);
+    }
+
+    public function taxonomy(array $params = [])
+    {
+        return $this->httpPost('/audiences/taxonomy/list', $params, [],false);
+    }
+
 }
