@@ -63,9 +63,6 @@ class Application extends Container
      */
     public function __get($name)
     {
-        if(!isset($this[$name])){
-            print_r($name);exit();
-        }
         return $this[$name];
     }
 }
