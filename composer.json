@@ -7,7 +7,7 @@
     "php": ">=7.2.0",
     "guzzlehttp/guzzle": "7.*",
     "pimple/pimple": "~3.0",
-    "monolog/monolog": "^1.22 || ^2.0",
+    "monolog/monolog": "^1.22 || ^2.0|| ^3.0",
     "ext-zlib": "*"
   },
   "keywords": [
