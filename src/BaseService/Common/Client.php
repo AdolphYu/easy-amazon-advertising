@@ -40,7 +40,7 @@ class Client extends BaseClient
      */
     public function keywordRecommend($params)
     {
-        return $this->httpPost('/sp/targets/keywords/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spkeywordsrecommendation.v5+json']);
+        return $this->httpPost('/sp/targets/keywords/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spkeywordsrecommendation.v4+json']);
     }
 
 
