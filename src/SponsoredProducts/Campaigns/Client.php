@@ -116,4 +116,9 @@ class Client extends BaseClient
     {
         return $this->httpGet('/sp/campaigns/extended', $params);
     }
+
+    public function listCampaignV3(array $params)
+    {
+        return $this->httpPost("/sp/campaigns/list", $params,[],false,['Accept' => 'application/vnd.spCampaign.v3+json','Content-Type' => 'application/vnd.spCampaign.v3+json']);
+    }
 }

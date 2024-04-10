@@ -396,7 +396,10 @@ class Client extends BaseClient
         return $this->httpPost("/sp/targets/keywords/recommendations", $params, [], false);
     }
 
-
+    public function keywordsListV3($params = [])
+    {
+        return $this->httpPost("/sp/keywords/list", $params,[],false,['Accept'=>'application/vnd.spKeyword.v3+json','Content-Type'=>'application/vnd.spKeyword.v3+json']);
+    }
     public function negativeKeywordsListV3($params = [])
     {
         return $this->httpPost("/sp/negativeKeywords/list", $params,[],false,['Accept'=>'application/vnd.spnegativeKeyword.v3+json','Content-Type'=>'application/vnd.spnegativeKeyword.v3+json']);

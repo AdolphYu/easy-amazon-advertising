@@ -254,6 +254,7 @@ class BaseClient
                 $requestId = $response->getHeader('x-amz-request-id')[0];
             }
         } catch (Exception $exception) {
+            var_dump($exception->getResponse()->getBody()->getContents());exit;
             $httpCode = $exception->getCode();
             $message = $exception->getMessage();
         }
@@ -313,15 +314,15 @@ class BaseClient
     {
         $headers = array_merge([
             'Authorization' => 'bearer '.$this->config['accessToken'],
-            'Content-Type' => 'application/json',
+//            'Content-Type' => 'application/json',
             'Amazon-Advertising-API-ClientId' => $this->config['clientId'],
         ], $headers);
         if (!empty($this->profileId)) {
             $headers['Amazon-Advertising-API-Scope'] = $this->profileId;
         }
 
+//        var_dump($headers);exit;
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
-
         return $this->request($requestUrl.$url, 'POST', ['query' => $query, 'json' => $data, 'headers' => $headers, 'timeout' => 600]);
     }
 
