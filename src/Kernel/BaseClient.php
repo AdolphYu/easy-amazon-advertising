@@ -254,7 +254,6 @@ class BaseClient
                 $requestId = $response->getHeader('x-amz-request-id')[0];
             }
         } catch (Exception $exception) {
-            var_dump($exception->getResponse()->getBody()->getContents());exit;
             $httpCode = $exception->getCode();
             $message = $exception->getMessage();
         }
