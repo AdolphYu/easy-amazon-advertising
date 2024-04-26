@@ -54,7 +54,7 @@ class Client extends BaseClient
      */
     public function createCampaigns($params)
     {
-        return $this->httpPost('/sp/campaigns', $params, [], false, ['Accept' => 'application/vnd.spCampaign.v3+json','Content-Type' => 'application/vnd.spCampaign.v3+json']);
+        return $this->httpPost('/sp/campaigns', $params);
     }
 
     /**
@@ -69,7 +69,7 @@ class Client extends BaseClient
      */
     public function updateCampaigns($params)
     {
-        return $this->httpPut('/sp/campaigns', $params, [], false, ['Accept' => 'application/vnd.spCampaign.v3+json','Content-Type' => 'application/vnd.spCampaign.v3+json']);
+        return $this->httpPut('/sp/campaigns', $params);
     }
 
     /**
@@ -120,5 +120,36 @@ class Client extends BaseClient
     public function listCampaignV3(array $params)
     {
         return $this->httpPost("/sp/campaigns/list", $params,[],false,['Accept' => 'application/vnd.spCampaign.v3+json','Content-Type' => 'application/vnd.spCampaign.v3+json']);
+    }
+
+
+    /**
+     * createCampaigns.
+     *
+     * @param $params
+     *
+     * @return array
+     *
+     * @author  baihe <b_aihe@163.com>
+     * @date    2019-11-14 00:43
+     */
+    public function createCampaignsV3($params)
+    {
+        return $this->httpPost('/sp/campaigns', $params, [], false, ['Accept' => 'application/vnd.spCampaign.v3+json','Content-Type' => 'application/vnd.spCampaign.v3+json']);
+    }
+
+    /**
+     * updateCampaigns.
+     *
+     * @param $params
+     *
+     * @return array
+     *
+     * @author  baihe <b_aihe@163.com>
+     * @date    2019-11-14 00:43
+     */
+    public function updateCampaignsV3($params)
+    {
+        return $this->httpPut('/sp/campaigns', $params, [], false, ['Accept' => 'application/vnd.spCampaign.v3+json','Content-Type' => 'application/vnd.spCampaign.v3+json']);
     }
 }
