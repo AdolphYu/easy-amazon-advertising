@@ -41,9 +41,6 @@ class Factory
         $namespace = Kernel\Support\Str::studly($name);
         $application = "\\easyAmazonAdv\\{$namespace}\\Application";
 
-        $config['proxy'] = [
-            'http'  => "http://210.16.120.235:10021"
-        ];
         return new $application($config);
     }
 

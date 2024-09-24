@@ -95,7 +95,11 @@ class BaseClient
 //        $handlerStack->push(Middleware::retry($this->retryDecider(), $this->retryDelay()));
 //        // 指定 handler
 //        $this->client = new Client(['handler' => $handlerStack]);
-        $this->client = new Client();
+        $this->client = new Client([
+            'proxy' => [
+                'http'  => "http://210.16.120.235:10021"
+            ]
+        ]);
     }
 
     /**
