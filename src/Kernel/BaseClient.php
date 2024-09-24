@@ -95,11 +95,7 @@ class BaseClient
 //        $handlerStack->push(Middleware::retry($this->retryDecider(), $this->retryDelay()));
 //        // 指定 handler
 //        $this->client = new Client(['handler' => $handlerStack]);
-        $this->client = new Client([
-            'proxy' => [
-                'http'  => "http://210.16.120.235:10021"
-            ]
-        ]);
+        $this->client = new Client();
     }
 
     /**
@@ -296,7 +292,7 @@ class BaseClient
 
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
 
-        return $this->request($requestUrl.$url, 'GET', ['query' => $data, 'headers' => $headers, 'timeout' => 600]);
+        return $this->request($requestUrl.$url, 'GET', ['query' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => "210.16.120.235:10021"]]);
     }
 
     /**
@@ -326,7 +322,7 @@ class BaseClient
 
 //        var_dump($headers);exit;
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
-        return $this->request($requestUrl.$url, 'POST', ['query' => $query, 'json' => $data, 'headers' => $headers, 'timeout' => 600]);
+        return $this->request($requestUrl.$url, 'POST', ['query' => $query, 'json' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => "210.16.120.235:10021"]]);
     }
 
     /**
