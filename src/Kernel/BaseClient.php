@@ -292,7 +292,7 @@ class BaseClient
 
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
 
-        return $this->request($requestUrl.$url, 'GET', ['query' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => "http://210.16.120.235:10021"]]);
+        return $this->request($requestUrl.$url, 'GET', ['query' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => 'http://210.16.120.235:10021', 'https' => 'http://210.16.120.235:10021',]]);
     }
 
     /**
@@ -322,7 +322,7 @@ class BaseClient
 
 //        var_dump($headers);exit;
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
-        return $this->request($requestUrl.$url, 'POST', ['query' => $query, 'json' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => "http://210.16.120.235:10021"]]);
+        return $this->request($requestUrl.$url, 'POST', ['query' => $query, 'json' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => 'http://210.16.120.235:10021', 'https' => 'http://210.16.120.235:10021',]]);
     }
 
     /**
