@@ -292,7 +292,7 @@ class BaseClient
 
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
 
-        return $this->request($requestUrl.$url, 'GET', ['query' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => 'http://210.16.120.235:10021', 'https' => 'http://210.16.120.235:10021',], 'verify' => false]);
+        return $this->request($requestUrl.$url, 'GET', ['query' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => 'http://210.16.120.235:10021']]);
     }
 
     /**
@@ -311,26 +311,18 @@ class BaseClient
      */
     public function httpPost(string $url, array $data = [], array $query = [], $isVersion = true, $headers = [])
     {
-        try {
-            $headers = array_merge([
-                'Authorization' => 'bearer '.$this->config['accessToken'],
+        $headers = array_merge([
+            'Authorization' => 'bearer '.$this->config['accessToken'],
 //            'Content-Type' => 'application/json',
-                'Amazon-Advertising-API-ClientId' => $this->config['clientId'],
-            ], $headers);
-            if (!empty($this->profileId)) {
-                $headers['Amazon-Advertising-API-Scope'] = $this->profileId;
-            }
-
-//        var_dump($headers);exit;
-            $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
-            $response = $this->request($requestUrl.$url, 'POST', ['query' => $query, 'json' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => 'http://210.16.120.235:10021', 'https' => 'http://210.16.120.235:10021']]);
-        }catch (\GuzzleHttp\Exception\RequestException $e){
-            echo $e->getMessage();
-            echo $e->getTraceAsString();
-            exit();
+            'Amazon-Advertising-API-ClientId' => $this->config['clientId'],
+        ], $headers);
+        if (!empty($this->profileId)) {
+            $headers['Amazon-Advertising-API-Scope'] = $this->profileId;
         }
 
-        return $response;
+//        var_dump($headers);exit;
+        $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
+        return $this->request($requestUrl.$url, 'POST', ['query' => $query, 'json' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => 'http://210.16.120.235:10021']]);
     }
 
     /**
