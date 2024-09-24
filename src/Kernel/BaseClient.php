@@ -311,6 +311,7 @@ class BaseClient
      */
     public function httpPost(string $url, array $data = [], array $query = [], $isVersion = true, $headers = [])
     {
+        echo 1111;exit();
         try {
             $headers = array_merge([
                 'Authorization' => 'bearer '.$this->config['accessToken'],
