@@ -311,18 +311,25 @@ class BaseClient
      */
     public function httpPost(string $url, array $data = [], array $query = [], $isVersion = true, $headers = [])
     {
-        $headers = array_merge([
-            'Authorization' => 'bearer '.$this->config['accessToken'],
+        try {
+            $headers = array_merge([
+                'Authorization' => 'bearer '.$this->config['accessToken'],
 //            'Content-Type' => 'application/json',
-            'Amazon-Advertising-API-ClientId' => $this->config['clientId'],
-        ], $headers);
-        if (!empty($this->profileId)) {
-            $headers['Amazon-Advertising-API-Scope'] = $this->profileId;
-        }
+                'Amazon-Advertising-API-ClientId' => $this->config['clientId'],
+            ], $headers);
+            if (!empty($this->profileId)) {
+                $headers['Amazon-Advertising-API-Scope'] = $this->profileId;
+            }
 
 //        var_dump($headers);exit;
-        $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
-        return $this->request($requestUrl.$url, 'POST', ['query' => $query, 'json' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => 'http://210.16.120.235:10021', 'https' => 'http://210.16.120.235:10021',], 'verify' => false]);
+            $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
+        }catch (\GuzzleHttp\Exception\RequestException $e){
+            echo $e->getMessage();
+            echo $e->getTraceAsString();
+            exit();
+        }
+
+        return $this->request($requestUrl.$url, 'POST', ['query' => $query, 'json' => $data, 'headers' => $headers, 'timeout' => 600, 'proxy' => ['http'  => 'http://210.16.120.235:10021', 'https' => 'http://210.16.120.235:10021']]);
     }
 
     /**
