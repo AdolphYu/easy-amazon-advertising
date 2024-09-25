@@ -295,10 +295,7 @@ class BaseClient
         return $this->request($requestUrl.$url, 'GET', [
             'query' => $data,
             'headers' => $headers,
-            'timeout' => 600,
-            'proxy' => [
-                'https' => 'http://47.254.29.20:10021'
-            ]
+            'timeout' => 600
         ]);
     }
 
@@ -333,10 +330,7 @@ class BaseClient
             'query' => $query,
             'json' => $data,
             'headers' => $headers,
-            'timeout' => 600,
-            'proxy' => [
-                'https' => 'http://47.254.29.20:10021'
-            ]
+            'timeout' => 600
         ]);
     }
 
