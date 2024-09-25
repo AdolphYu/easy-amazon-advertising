@@ -297,7 +297,7 @@ class BaseClient
             'headers' => $headers,
             'timeout' => 600,
             'proxy' => [
-                'https' => 'http://47.254.29.20:10021'
+                'https' => 'http://43.230.206.241:20000'
             ]
         ]);
     }
@@ -335,7 +335,7 @@ class BaseClient
             'headers' => $headers,
             'timeout' => 600,
             'proxy' => [
-                'https' => 'http://47.254.29.20:10021'
+                'https' => 'http://43.230.206.241:20000'
             ]
         ]);
     }
