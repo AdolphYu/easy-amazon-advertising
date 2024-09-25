@@ -330,10 +330,7 @@ class BaseClient
             'query' => $query,
             'json' => $data,
             'headers' => $headers,
-            'timeout' => 600,
-            'proxy' => [
-                'https' => 'http://210.16.120.235:10022'
-            ]
+            'timeout' => 600
         ]);
     }
 
