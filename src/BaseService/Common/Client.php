@@ -30,7 +30,12 @@ class Client extends BaseClient
      */
     public function bidRecommend($params)
     {
-        return $this->httpPost('/sp/targets/bid/recommendations', $params, [], false);
+        $proxy = [];
+        if (isset($params['proxy'])) {
+            $proxy = $params['proxy'];
+            unset($params['proxy']);
+        }
+        return $this->httpPost('/sp/targets/bid/recommendations', $params, [], false, [], $proxy);
     }
 
     /**
@@ -40,7 +45,12 @@ class Client extends BaseClient
      */
     public function keywordRecommend($params)
     {
-        return $this->httpPost('/sp/targets/keywords/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spkeywordsrecommendation.v4+json']);
+        $proxy = [];
+        if (isset($params['proxy'])) {
+            $proxy = $params['proxy'];
+            unset($params['proxy']);
+        }
+        return $this->httpPost('/sp/targets/keywords/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spkeywordsrecommendation.v4+json'], $proxy);
     }
 
 

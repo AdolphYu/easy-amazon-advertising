@@ -198,7 +198,12 @@ class Client extends BaseClient
      */
     public function createRecommendationsForCategory(array $params)
     {
-        return $this->httpPost('/sp/targets/categories/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+        $proxy = [];
+        if (isset($params['proxy'])) {
+            $proxy = $params['proxy'];
+            unset($params['proxy']);
+        }
+        return $this->httpPost('/sp/targets/categories/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json'], $proxy);
     }
 
     /**
@@ -208,7 +213,12 @@ class Client extends BaseClient
      */
     public function getNewTargetingCategories(array $params = [])
     {
-        return $this->httpGet('/sp/targets/categories', $params, false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+        $proxy = [];
+        if (isset($params['proxy'])) {
+            $proxy = $params['proxy'];
+            unset($params['proxy']);
+        }
+        return $this->httpGet('/sp/targets/categories', $params, false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json'], $proxy);
     }
 
     /**
@@ -219,7 +229,12 @@ class Client extends BaseClient
      */
     public function getNewTargetingCategoriesRefinements($categoryId, array $params = [])
     {
-        return $this->httpGet("/sp/targets/category/{$categoryId}/refinements", $params, false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+        $proxy = [];
+        if (isset($params['proxy'])) {
+            $proxy = $params['proxy'];
+            unset($params['proxy']);
+        }
+        return $this->httpGet("/sp/targets/category/{$categoryId}/refinements", $params, false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json'], $proxy);
     }
 
 
@@ -230,7 +245,12 @@ class Client extends BaseClient
      */
     public function createTargetProductsCount(array $params)
     {
-        return $this->httpPost('/sp/targets/products/count', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+        $proxy = [];
+        if (isset($params['proxy'])) {
+            $proxy = $params['proxy'];
+            unset($params['proxy']);
+        }
+        return $this->httpPost('/sp/targets/products/count', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json'], $proxy);
     }
 
     /**
@@ -240,7 +260,12 @@ class Client extends BaseClient
      */
     public function negativeTargetsBrandsSearch(array $params)
     {
-        return $this->httpPost('/sp/negativeTargets/brands/search', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json']);
+        $proxy = [];
+        if (isset($params['proxy'])) {
+            $proxy = $params['proxy'];
+            unset($params['proxy']);
+        }
+        return $this->httpPost('/sp/negativeTargets/brands/search', $params, [], false, ['Content-Type' => 'application/vnd.spproducttargeting.v3+json'], $proxy);
     }
 
     /**
@@ -250,7 +275,12 @@ class Client extends BaseClient
      */
     public function targetsProductsRecommendations(array $params)
     {
-        return $this->httpPost('/sp/targets/products/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spproductrecommendation.v3+json']);
+        $proxy = [];
+        if (isset($params['proxy'])) {
+            $proxy = $params['proxy'];
+            unset($params['proxy']);
+        }
+        return $this->httpPost('/sp/targets/products/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spproductrecommendation.v3+json'], $proxy);
     }
 
 }

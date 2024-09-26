@@ -69,7 +69,12 @@ class Client extends BaseClient
      */
     public function getBidRecommendations(array $params)
     {
-        return $this->httpPost('/sp/targets/bidRecommendations', $params);
+        $proxy = [];
+        if (isset($params['proxy'])) {
+            $proxy = $params['proxy'];
+            unset($params['proxy']);
+        }
+        return $this->httpPost('/sp/targets/bidRecommendations', $params, [], true, [], $proxy);
     }
 
     /**

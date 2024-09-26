@@ -119,7 +119,7 @@ class Client extends BaseClient
 
     public function listCampaignV3(array $params)
     {
-        return $this->httpPost("/sp/campaigns/list", $params,[],false,['Accept' => 'application/vnd.spCampaign.v3+json','Content-Type' => 'application/vnd.spCampaign.v3+json']);
+        return $this->httpPost("/sp/campaigns/list", $params,[],false, ['Accept' => 'application/vnd.spCampaign.v3+json','Content-Type' => 'application/vnd.spCampaign.v3+json']);
     }
 
 

@@ -273,13 +273,13 @@ class BaseClient
      * @param string $url
      * @param array  $data
      * @param bool   $isVersion
-     *
+     * @param array $proxy
      * @return array
      *
      * @author  baihe <b_aihe@163.com>
      * @date    2019-11-20 10:53
      */
-    public function httpGet(string $url, array $data = [], $isVersion = true, $headers = [])
+    public function httpGet(string $url, array $data = [], $isVersion = true, $headers = [], $proxy = [])
     {
         $headers = array_merge([
             'Authorization' => 'bearer '.$this->config['accessToken'],
@@ -292,11 +292,15 @@ class BaseClient
 
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
 
-        return $this->request($requestUrl.$url, 'GET', [
+        $options = [
             'query' => $data,
             'headers' => $headers,
             'timeout' => 600
-        ]);
+        ];
+        if (!empty($proxy)) {
+            $options['proxy'] = $proxy;
+        }
+        return $this->request($requestUrl.$url, 'GET', $options);
     }
 
     /**
@@ -307,13 +311,13 @@ class BaseClient
      * @param array  $query
      * @param bool   $isVersion
      * @param array   $headers
-     *
+     * @param array   $proxy
      * @return array
      *
      * @author  baihe <b_aihe@163.com>
      * @date    2019-11-20 10:53
      */
-    public function httpPost(string $url, array $data = [], array $query = [], $isVersion = true, $headers = [])
+    public function httpPost(string $url, array $data = [], array $query = [], $isVersion = true, $headers = [], $proxy = [])
     {
         $headers = array_merge([
             'Authorization' => 'bearer '.$this->config['accessToken'],
@@ -326,12 +330,16 @@ class BaseClient
 
 //        var_dump($headers);exit;
         $requestUrl = $isVersion ? $this->apiEndpoint : $this->apiNoVersionEndpoint;
-        return $this->request($requestUrl.$url, 'POST', [
+        $options = [
             'query' => $query,
             'json' => $data,
             'headers' => $headers,
             'timeout' => 600
-        ]);
+        ];
+        if (!empty($proxy)) {
+            $options['proxy'] = $proxy;
+        }
+        return $this->request($requestUrl.$url, 'POST', $options);
     }
 
     /**
