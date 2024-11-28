@@ -116,4 +116,12 @@ class Client extends BaseClient
     {
         return $this->httpGet('/sp/productAds/extended', $params);
     }
+
+
+    public function listProductAdsV3(array $params)
+    {
+
+        return $this->httpPost("/sp/productAds/list", $params,[],false, ['Accept' => 'application/vnd.spProductAd.v3+json','Content-Type' => 'application/vnd.spProductAd.v3+json']);
+    }
+
 }
