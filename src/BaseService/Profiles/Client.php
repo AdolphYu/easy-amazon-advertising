@@ -22,6 +22,7 @@ class Client extends BaseClient
      */
     public function listProfiles()
     {
+
         return $this->httpGet('/profiles');
     }
 
