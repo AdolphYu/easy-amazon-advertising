@@ -283,4 +283,18 @@ class Client extends BaseClient
         return $this->httpPost('/sp/targets/products/recommendations', $params, [], false, ['Content-Type' => 'application/vnd.spproductrecommendation.v3+json'], $proxy);
     }
 
+    public function listTargetV3(array $params)
+    {
+
+        return $this->httpPost("/sp/targets/list", $params,[],false, ['Accept' => 'application/vnd.spTargetingClause.v3+json','Content-Type' => 'application/vnd.spTargetingClause.v3+json']);
+    }
+
+    public function listnegativeTargetV3(array $params)
+    {
+
+        return $this->httpPost("/sp/negativeTargets/list", $params,[],false, ['Accept' => 'application/vnd.spNegativeTargetingClause.v3+json','Content-Type' => 'application/vnd.spNegativeTargetingClause.v3+json']);
+    }
+
+
+
 }
