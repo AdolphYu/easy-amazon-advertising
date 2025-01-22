@@ -99,7 +99,7 @@ class Client extends BaseClient
      */
     public function updateTargetingClauses(array $params)
     {
-        return $this->httpPut('/sp/targets', $params);
+        return $this->httpPut('/sp/targets', $params, [], false, ['Content-Type' => 'application/vnd.spTargetingClause.v3+json','Accept' => 'application/vnd.spTargetingClause.v3+json']);
     }
 
     /**
