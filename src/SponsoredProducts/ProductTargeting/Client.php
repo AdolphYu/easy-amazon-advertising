@@ -289,7 +289,7 @@ class Client extends BaseClient
         return $this->httpPost("/sp/targets/list", $params,[],false, ['Accept' => 'application/vnd.spTargetingClause.v3+json','Content-Type' => 'application/vnd.spTargetingClause.v3+json']);
     }
 
-    public function listnegativeTargetV3(array $params)
+    public function listNegativeTargetV3(array $params)
     {
 
         return $this->httpPost("/sp/negativeTargets/list", $params,[],false, ['Accept' => 'application/vnd.spNegativeTargetingClause.v3+json','Content-Type' => 'application/vnd.spNegativeTargetingClause.v3+json']);
