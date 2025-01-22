@@ -116,4 +116,10 @@ class Client extends BaseClient
     {
         return $this->httpGet('/sp/adGroups/extended', $params);
     }
+    public function listAdGroupsV3(array $params)
+    {
+
+        return $this->httpPost("/sp/adGroups/list", $params,[],false, ['Accept' => 'application/vnd.spAdGroup.v3+json','Content-Type' => 'application/vnd.spAdGroup.v3+json']);
+    }
+
 }
