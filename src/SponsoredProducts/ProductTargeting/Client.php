@@ -84,7 +84,7 @@ class Client extends BaseClient
      */
     public function createTargetingClauses(array $params)
     {
-        return $this->httpPost('/sp/targets', $params);
+        return $this->httpPost('/sp/targets', $params, [], false, ['Content-Type' => 'application/vnd.spTargetingClause.v3+json','Accept' => 'application/vnd.spTargetingClause.v3+json']);
     }
 
     /**
